@@ -1,0 +1,19 @@
+version: '3'
+services:
+ novnc:
+  build:
+    context: .
+    dockerfile: dockerfile
+  image: ubuntu-novnc
+  container_name: ubuntu-novnc
+  # environment:
+    # - LIBGL_ALWAYS_INDIRECT=1
+    # - DISPLAY=:0
+  # volumes:
+  #   - /DEV/SHM:/dev/shm
+  ports:
+    - 6080:80
+    - 5900:5900
+  privileged: true
+  stdin_open: true
+  tty: true
