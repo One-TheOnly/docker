@@ -1,0 +1,41 @@
+FROM ubuntu:22.04
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list;   \
+    sed -i 's/security.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list;  \
+    apt-get update;
+
+RUN apt-get install tightvncserver -y;
+RUN apt-get install xubuntu-desktop -y;
+# RUN apt-get install ubuntu-desktop -y;
+# RUN apt-get install xubuntu-desktop -y;
+# RUN apt-get install kubuntu-desktop -y;
+
+ENV XDG_DATA_DIRS "/usr/share/xfce4:/usr/share/xubuntu:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/usr/share"
+ENV XDG_CONFIG_DIRS "/etc/xdg/xdg-xubuntu:/etc/xdg"
+
+# ENV LANG en_US.UTF-8
+# ENV GDM_LANG en_US.UTF-8
+ENV DESKTOP_SESSION xubuntu
+ENV GDMSESSION xubuntu
+ENV XDG_SESSION_DESKTOP xubuntu
+
+# propagate to X sessions. It is important when user first
+# login, they decide on the initial xfce/xubuntu template settings.
+# dbus-update-activation-environment --verbose XDG_DATA_DIRS XDG_CONFIG_DIRS DESKTOP_SESSION GDMSESSION XDG_SESSION_DESKTOP
+
+WORKDIR /app
+
+# RUN apt-get install git -y;
+
+# RUN git clone https://github.com/novnc/noVNC
+COPY ./noVNC ./noVNC
+# RUN git clone https://github.com/novnc/websockify/
+COPY ./websockify ./noVNC/utils/websockify
+
+ENV DISPLAY=:0
+
+EXPOSE 80
+
+CMD Xvnc :0 -geometry 1920x1080 -depth 24&dbus-update-activation-environment --verbose XDG_DATA_DIRS XDG_CONFIG_DIRS DESKTOP_SESSION GDMSESSION XDG_SESSION_DESKTOP&startxfce4&./noVNC/utils/novnc_proxy --vnc :5900 --listen 80

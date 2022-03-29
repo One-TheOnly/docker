@@ -1,0 +1,24 @@
+version: '3'
+services:
+ xfce4-session:
+  build:
+    context: .
+    dockerfile: dockerfile-xfce4
+  image: onetheonly/ubuntu-desktop-novnc:xfce4
+  ports:
+    - 6080:80
+    - 5900:5900
+  privileged: true
+  stdin_open: true
+  tty: true  
+ xubuntu-session:
+  build:
+    context: .
+    dockerfile: dockerfile-xubuntu
+  image: onetheonly/ubuntu-desktop-novnc:xubuntu
+  ports:
+    - 6081:80
+    - 5901:5900
+  privileged: true
+  stdin_open: true
+  tty: true
