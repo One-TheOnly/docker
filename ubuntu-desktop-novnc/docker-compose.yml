@@ -1,68 +1,68 @@
 version: '3'
 services:
- 03-xfce4:
-  build:
-    context: .
-    dockerfile: dockerfile-xfce4
-  image: onetheonly/ubuntu-desktop-novnc:xfce4
-  ports:
-    - 6080:80
-    - 5900:5900
-  privileged: true
-  stdin_open: true
-  tty: true  
- 04-xubuntu:
-  build:
-    context: .
-    dockerfile: dockerfile-xubuntu
-  image: onetheonly/ubuntu-desktop-novnc:xubuntu
-  ports:
-    - 6081:80
-    - 5901:5900
-  privileged: true
-  stdin_open: true
-  tty: true
- 01-gnome:
-  build:
-    context: .
-    dockerfile: dockerfile-gnome
-  image: onetheonly/ubuntu-desktop-novnc:gnome
-  ports:
-    - 6082:80
-    - 5902:5900
-  privileged: true
-  stdin_open: true
-  tty: true
- 02-ubuntu:
-  build:
-    context: .
-    dockerfile: dockerfile-ubuntu
-  image: onetheonly/ubuntu-desktop-novnc:ubuntu
-  ports:
-    - 6083:80
-    - 5903:5900
-  privileged: true
-  stdin_open: true
-  tty: true
- 05-lxde:
-  build:
-    context: .
-    dockerfile: dockerfile-lxde
-  image: onetheonly/ubuntu-desktop-novnc:lxde
-  ports:
-    - 6084:80
-    - 5904:5900
-  privileged: true
-  stdin_open: true
-  tty: true
- 06-lxqt:
-  build:
-    context: .
-    dockerfile: dockerfile-lxqt
-  image: onetheonly/ubuntu-desktop-novnc:lxqt
-  ports:
-    - 6085:80
-    - 5905:5900
-  privileged: true
-  stdin_open: true
-  tty: true
+  01-gnome:
+    build:
+      context: .
+      dockerfile: dockerfile-01-gnome
+    image: onetheonly/ubuntu-desktop-novnc:gnome
+    ports:
+      - 6082:80
+      - 5902:5900
+    privileged: true
+    stdin_open: true
+    tty: true
+  02-ubuntu:
+    build:
+      context: .
+      dockerfile: dockerfile-02-ubuntu
+    image: onetheonly/ubuntu-desktop-novnc:ubuntu
+    ports:
+      - 6083:80
+      - 5903:5900
+    privileged: true
+    stdin_open: true
+    tty: true
+  03-xfce4:
+    build:
+      context: .
+      dockerfile: dockerfile-03-xfce4
+    image: onetheonly/ubuntu-desktop-novnc:xfce4
+    ports:
+      - 6080:80
+      - 5900:5900
+    privileged: true
+    stdin_open: true
+    tty: true
+  04-xubuntu:
+    build:
+      context: .
+      dockerfile: dockerfile-04-xubuntu
+    image: onetheonly/ubuntu-desktop-novnc:xubuntu
+    ports:
+      - 6081:80
+      - 5901:5900
+    privileged: true
+    stdin_open: true
+    tty: true
+  05-lxde:
+    build:
+      context: .
+      dockerfile: dockerfile-05-lxde
+    image: onetheonly/ubuntu-desktop-novnc:lxde
+    ports:
+      - 6084:80
+      - 5904:5900
+    privileged: true
+    stdin_open: true
+    tty: true
+  06-lxqt:
+    build:
+      context: .
+      dockerfile: dockerfile-06-lxqt
+    image: onetheonly/ubuntu-desktop-novnc:lxqt
+    ports:
+      - 6085:80
+      - 5905:5900
+    privileged: true
+    stdin_open: true
+    tty: true
