@@ -1,6 +1,6 @@
 version: '3'
 services:
- xfce4:
+ 03-xfce4:
   build:
     context: .
     dockerfile: dockerfile-xfce4
@@ -11,7 +11,7 @@ services:
   privileged: true
   stdin_open: true
   tty: true  
- xubuntu:
+ 04-xubuntu:
   build:
     context: .
     dockerfile: dockerfile-xubuntu
@@ -22,7 +22,7 @@ services:
   privileged: true
   stdin_open: true
   tty: true
- gnome:
+ 01-gnome:
   build:
     context: .
     dockerfile: dockerfile-gnome
@@ -33,7 +33,7 @@ services:
   privileged: true
   stdin_open: true
   tty: true
- ubuntu:
+ 02-ubuntu:
   build:
     context: .
     dockerfile: dockerfile-ubuntu
@@ -44,7 +44,7 @@ services:
   privileged: true
   stdin_open: true
   tty: true
- lxde:
+ 05-lxde:
   build:
     context: .
     dockerfile: dockerfile-lxde
@@ -55,7 +55,7 @@ services:
   privileged: true
   stdin_open: true
   tty: true
- lxqt:
+ 06-lxqt:
   build:
     context: .
     dockerfile: dockerfile-lxqt
