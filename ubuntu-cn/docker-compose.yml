@@ -1,0 +1,18 @@
+version: '3'
+services:
+ ubuntu-cn:
+  build:
+    context: .
+    dockerfile: ubuntu-cn
+  image: onetheonly/ubuntu-cn
+  privileged: true
+  stdin_open: true
+  tty: true
+ ubuntu-cn-22.04:
+  build:
+    context: .
+    dockerfile: ubuntu-cn-22.04
+  image: onetheonly/ubuntu-cn:22.04
+  privileged: true
+  stdin_open: true
+  tty: true

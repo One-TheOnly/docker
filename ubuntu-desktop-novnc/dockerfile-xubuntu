@@ -2,8 +2,8 @@ FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list;   \
-    sed -i 's/security.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list;  \
+RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list;   \
+    sed -i 's/security.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list;  \
     apt-get update;
 
 RUN apt-get install tightvncserver -y;
@@ -15,8 +15,8 @@ RUN apt-get install xubuntu-desktop -y;
 ENV XDG_DATA_DIRS "/usr/share/xfce4:/usr/share/xubuntu:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/usr/share"
 ENV XDG_CONFIG_DIRS "/etc/xdg/xdg-xubuntu:/etc/xdg"
 
-# ENV LANG en_US.UTF-8
-# ENV GDM_LANG en_US.UTF-8
+# ENV LANG zh_CN.UTF-8
+# ENV GDM_LANG zh_CN.UTF-8
 ENV DESKTOP_SESSION xubuntu
 ENV GDMSESSION xubuntu
 ENV XDG_SESSION_DESKTOP xubuntu
